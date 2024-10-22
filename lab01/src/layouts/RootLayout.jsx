@@ -1,4 +1,5 @@
 import NavBarMenu from "../components/NavBarMenu";
+import Footer from "../components/Footer";
 import navBarItems from "../data/nav-bar-items";
 
 function RootLayout({ children }) {
@@ -6,7 +7,7 @@ function RootLayout({ children }) {
     <>
       <NavBarMenu items={navBarItems}></NavBarMenu>
       {children}
-      <footer>ahhaahaha</footer>
+      <Footer />
     </>
   );
 }

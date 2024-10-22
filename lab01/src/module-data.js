@@ -1,12 +1,12 @@
 export const data = [
 {
   "id": 1,
-  "name": "Karolina",
-  "eyes": "gray"
+  "name": "Mateusz",
+  "eyes": "brown"
 },
 {
   "id": 2,
-  "name": "Mateusz",
+  "name": "Karolina",
   "eyes": "gray"
 },
 {
@@ -17,16 +17,16 @@ export const data = [
 {
   "id": 4,
   "name": "Karolina",
-  "eyes": "green"
+  "eyes": "blue"
 },
 {
   "id": 5,
   "name": "Zbigniew",
-  "eyes": "green"
+  "eyes": "gray"
 },
 {
   "id": 6,
-  "name": "Karolina",
+  "name": "Karol",
   "eyes": "blue"
 },
 {
@@ -36,17 +36,17 @@ export const data = [
 },
 {
   "id": 8,
-  "name": "Karol",
-  "eyes": "brown"
+  "name": "Karolina",
+  "eyes": "blue"
 },
 {
   "id": 9,
-  "name": "Mateusz",
-  "eyes": "brown"
+  "name": "Karolina",
+  "eyes": "blue"
 },
 {
   "id": 10,
   "name": "Karolina",
-  "eyes": "gray"
+  "eyes": "green"
 },
 ];
