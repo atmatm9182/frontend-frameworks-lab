@@ -23,6 +23,7 @@ const eyeColors = ["blue", "green", "gray", "brown"];
             id: i + 1,
             name: names[nameIdx],
             eyes: eyeColors[Math.round(Math.random() * (eyeColors.length - 1))],
+            rating: Math.round(Math.random() * 10),
         };
         result += `${JSON.stringify(person, undefined, 2)},\n`;
     }
