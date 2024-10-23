@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import RootLayout from "./layouts/RootLayout";
 import { Routes, Route } from "react-router-dom";
 import navBarItems from "./data/nav-bar-items";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           {navBarItems.map((item) => (
             <Route path={item.urlPattern} key={item.id} {...item}></Route>
           ))}
+          <Route path="/*" element={<NotFound />}></Route>
         </Routes>
       </RootLayout>
     </div>
