@@ -23,11 +23,12 @@ const eyeColors = ["blue", "green", "gray", "brown"];
             id: i + 1,
             name: names[nameIdx],
             eyes: eyeColors[Math.round(Math.random() * (eyeColors.length - 1))],
+            rating: Math.round(Math.random() * 10),
         };
         result += `${JSON.stringify(person, undefined, 2)},\n`;
     }
 
     result += "];";
     
-    await fs.writeFile("src/module-data.js", result);
+    await fs.writeFile("src/data/module-data.js", result);
 })()
