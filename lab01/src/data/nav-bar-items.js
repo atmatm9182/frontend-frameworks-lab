@@ -45,8 +45,8 @@ const navBarItems = [
   {
     id: 6,
     label: "Laboratorium 4 Edit",
-      url: "/lab4/edit",
-      urlPattern: "/lab4/edit",
+      url: "/lab4/edit/1",
+      urlPattern: "/lab4/edit/:id",
     element: <Lab4Edit></Lab4Edit>,
   },
 
