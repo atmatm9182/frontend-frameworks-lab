@@ -3,15 +3,11 @@ import "bootstrap/dist/css/bootstrap.css";
 import RootLayout from "./layouts/RootLayout";
 import { Routes, Route } from "react-router-dom";
 import navBarItems from "./data/nav-bar-items";
-import { data } from "./data/module-data";
-import AppContext from "./data/AppContext";
-import AppReducer from "./data/AppReducer";
-import { useReducer } from "react";
+import AppProvider from "./components/AppProvider";
 
 function App() {
-    const [items, dispatch] = useReducer(AppReducer, data);
     return (
-        <AppContext.Provider value={{ items, dispatch }}>
+        <AppProvider>
             <div className="App">
                 <RootLayout>
                     <Routes>
@@ -21,7 +17,7 @@ function App() {
                     </Routes>
                 </RootLayout>
             </div>
-        </AppContext.Provider>
+        </AppProvider>
     );
 }
 

@@ -1,9 +1,8 @@
 import RatingBar from "./RatingBar";
-import { useState, useContext } from "react";
-import AppContext from "../data/AppContext";
+import { useDispatch } from "../hooks";
 
 function PersonProfile({ id, name, eyes, rating }) {
-    const { dispatch } = useContext(AppContext);
+    const dispatch = useDispatch();
 
     return (
         <div>
