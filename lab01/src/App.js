@@ -4,6 +4,7 @@ import RootLayout from "./layouts/RootLayout";
 import { Routes, Route } from "react-router-dom";
 import navBarItems from "./data/nav-bar-items";
 import AppProvider from "./components/AppProvider";
+import LineChart from "./components/LineChart";
 
 function App() {
     return (
@@ -16,6 +17,11 @@ function App() {
                         ))}
                     </Routes>
                 </RootLayout>
+            <LineChart
+                    data={[6, 5, 5, 10, 1, 2, 3]}
+                    stroke="red"
+                    background="green"
+                />
             </div>
         </AppProvider>
     );
