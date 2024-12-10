@@ -1,4 +1,7 @@
 export default function RegisterUser() {
-    return <>
-    </>;
+    return (
+        <>
+            The form for user registration will be here!
+        </>
+    );
 }
