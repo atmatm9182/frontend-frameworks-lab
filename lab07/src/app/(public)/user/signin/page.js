@@ -1,15 +1,17 @@
 "use client";
 
-import { auth } from "@/lib/firebase";
-
 import { useSearchParams, useRouter } from "next/navigation";
 import {
     browserSessionPersistence,
+    getAuth,
     setPersistence,
     signInWithEmailAndPassword,
 } from "firebase/auth";
+import { app } from "@/lib/firebase";
 
 export default function Signin() {
+    const auth = getAuth(app);
+
     const params = useSearchParams();
     const router = useRouter();
     const returnUrl = params.get("returnUrl") ?? "/";
