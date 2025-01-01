@@ -7,22 +7,22 @@ import { useAuth } from "@/lib/AuthContext";
 import { useRouter } from "next/navigation";
 
 export default function RegisterUser() {
-    const existingUser = useAuth();
+    const { user } = useAuth();
 
     const router = useRouter();
 
-    if (existingUser?.auth) {
-        return <>You are already logged in</>;
-    }
-
     const auth = getAuth(app);
     const [error, setError] = useState(null);
+
+    if (user) {
+        return <>You are already logged in</>;
+    }
 
     async function onSubmit(e) {
         e.preventDefault();
 
         try {
-            const userCredentials = await createUserWithEmailAndPassword(
+            await createUserWithEmailAndPassword(
                 auth, e.target["email"].value,
                 e.target["password"].value
             );
