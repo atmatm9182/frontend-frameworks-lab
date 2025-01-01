@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import {
     browserSessionPersistence,
     getAuth,
@@ -12,9 +12,7 @@ import { app } from "@/lib/firebase";
 export default function Signin() {
     const auth = getAuth(app);
 
-    const params = useSearchParams();
     const router = useRouter();
-    const returnUrl = params.get("returnUrl") ?? "/";
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -25,8 +23,8 @@ export default function Signin() {
         try {
             await setPersistence(auth, browserSessionPersistence);
 
-            const credentials = signInWithEmailAndPassword(auth, email, password);
-            router.push(returnUrl);
+            signInWithEmailAndPassword(auth, email, password);
+            router.push("/user/profile");
         } catch (e) {
             console.error(e);
         }

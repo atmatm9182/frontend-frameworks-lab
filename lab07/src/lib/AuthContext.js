@@ -7,24 +7,25 @@ import { app } from "./firebase";
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-    const auth = getAuth(app);
+  const auth = getAuth(app);
 
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-    useEffect(
-        () => onAuthStateChanged(auth, (user) => {
-            setUser(user);
-            setLoading(false);
-        }),
-        [],
-    );
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+      setLoading(false);
+    });
 
-    return (
-        <AuthContext.Provider value={{ user, loading }}>
-            {children}
-        </AuthContext.Provider>
-    );
+    return () => unsub();
+  }, [auth]);
+
+  return (
+    <AuthContext.Provider value={{ user, loading }}>
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
 export const useAuth = () => useContext(AuthContext);
