@@ -33,10 +33,10 @@ export default function Signin() {
     return (
         <form onSubmit={onSubmit}>
             <label htmlFor="email">Email</label>
-            <input type="email" name="email" />
+            <input type="email" id="email" name="email" />
             <br />
             <label htmlFor="password">Password</label>
-            <input type="password" name="password" />
+            <input type="password" id="password" name="password" />
             <br />
             <input type="submit" />
         </form>
