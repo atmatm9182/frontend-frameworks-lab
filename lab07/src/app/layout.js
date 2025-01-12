@@ -8,6 +8,7 @@ import Link from "next/link";
 
 const font = UnifrakturMaguntia({
   weight: "400",
+  subsets: ["latin"],
 });
 
 export const metadata = {
