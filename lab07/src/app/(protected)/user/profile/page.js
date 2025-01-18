@@ -80,15 +80,6 @@ export default function Profile() {
                         :
                         <> </>
                 }
-                {
-                    city && street && zipCode
-                    ? <>
-                            <p>City: {city}</p>
-                            <p>Street: {street}</p>
-                            <p>Zip code: {zipCode}</p>
-                        </>
-                    : <> </>
-                }
                 <Link href="/schedule">See schedule</Link>
                 <form onSubmit={onSubmit}>
                     <p>Email: {user.email}</p>

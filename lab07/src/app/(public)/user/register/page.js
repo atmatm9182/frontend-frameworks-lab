@@ -6,12 +6,11 @@ import { useState } from "react";
 import { useAuth } from "@/lib/AuthContext";
 import { useRouter } from "next/navigation";
 
-export default function RegisterUser() {
+export default function Register() {
     const { user } = useAuth();
 
     const router = useRouter();
 
-    const auth = getAuth(app);
     const [error, setError] = useState(null);
 
     if (user) {
@@ -19,6 +18,8 @@ export default function RegisterUser() {
     }
 
     async function onSubmit(e) {
+        const auth = getAuth(app);
+
         e.preventDefault();
 
         try {
