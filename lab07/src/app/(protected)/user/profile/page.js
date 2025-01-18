@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
+import Link from "next/link";
+
 export default function Profile() {
     const { user } = useAuth();
 
@@ -16,12 +18,17 @@ export default function Profile() {
 
     useEffect(() => {
         (async () => {
-            const snapshot = await getDoc(doc(db, "users", user?.uid));
-            const address = snapshot.data().address;
+            try {
+                const d = doc(db, "users", user?.uid);
+                const snapshot = await getDoc(d);
+                const address = snapshot.data().address;
 
-            setCity(address.city);
-            setStreet(address.street);
-            setZipCode(address.zipCode);
+                setCity(address.city);
+                setStreet(address.street);
+                setZipCode(address.zipCode);
+            } catch {
+                // ignore the error
+            }
         })()
     }, [user]);
 
@@ -82,6 +89,7 @@ export default function Profile() {
                         </>
                     : <> </>
                 }
+                <Link href="/schedule">See schedule</Link>
                 <form onSubmit={onSubmit}>
                     <p>Email: {user.email}</p>
                     <label htmlFor="display-name">Display name</label>
@@ -91,13 +99,13 @@ export default function Profile() {
                     <input type="url" id="photo-url" name="photo-url" defaultValue={user.photoURL ?? ""}/>
                     <br/>
                     <label htmlFor="city">City</label>
-                    <input type="text" id="city" name="city"/>
+                    <input type="text" id="city" name="city" defaultValue={city}/>
                     <br/>
                     <label htmlFor="street">Street</label>
-                    <input type="text" id="street" name="street"/>
+                    <input type="text" id="street" name="street" defaultValue={street}/>
                     <br/>
                     <label htmlFor="zip-code">Zip code</label>
-                    <input type="text" id="zip-code" name="zip-code"/>
+                    <input type="text" id="zip-code" name="zip-code" defaultValue={zipCode}/>
                     <br/>
                     <input type="submit" value="Update" />
                 </form>

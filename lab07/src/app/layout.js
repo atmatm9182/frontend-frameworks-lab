@@ -17,6 +17,25 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+    const links = [
+        {
+            href: "/",
+            label: "Home",
+        },
+        {
+            href: "/about",
+            label: "About",
+        },
+        {
+            href: "/contact",
+            label: "Contact",
+        },
+        {
+            href: "/user/signin",
+            label: "Login",
+        },
+    ];
+
   return (
     <html lang="en">
       <body className={`${font.className}`}>
@@ -24,10 +43,7 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <div className="main-container">
             <nav className="left-nav">
-              <Link href="/">Home</Link>
-              <Link href="/about">About</Link>
-              <Link href="/contact">Contact</Link>
-              <Link href="/user/signin">Login</Link>
+              { links.map(({ href, label }, idx) => <Link href={href} key={idx}>{label}</Link> ) }
             </nav>
             <main className="main-content">{children}</main>
           </div>

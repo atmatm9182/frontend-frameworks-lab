@@ -19,7 +19,7 @@ export function AuthProvider({ children }) {
     });
 
     return () => unsub();
-  }, [auth]);
+  }, []);
 
   return (
     <AuthContext.Provider value={{ user, loading }}>
