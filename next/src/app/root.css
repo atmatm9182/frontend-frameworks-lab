@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container999 {
+    flex-basis: 80%;
+    flex-grow: 0;
+}
+
+.left-nav {
+    flex-grow: 0;
+    flex-basis: 20%;
+    height: 100%;
+    background-color: black;
+}
+
+.left-nav > a {
+    padding: 3px;
+    display: block;
+    color: whitesmoke;
+    font-size: 1.5em;
+}
+
+.left-nav > a:visited {
+    color: crimson;
+}
+
+.left-nav > a:hover {
+    padding: 0;
+    border: 3px ridge gold;
+}
+
+.main-content {
+    margin: auto;
+}
+
+.add-lecture:hover {
+    background-color: crimson;
+    background-image: url("/plus.svg");
+    background-size: convert;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.footer {
+    margin: 0.5rem auto;
+}
+
+a {
+    text-decoration: underline;
+}
+
+input {
+    border: 2px solid crimson;
+    padding: 2px;
+    margin: 2px;
+}
+
+button, input[type=submit] {
+    border: 2px dashed crimson;
+}
+
+button, input[type=submit]:hover {
+    cursor: pointer;
+}
+
+table, td, th {
+    padding: 2px;
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+hr {
+    margin: 2px;
+    padding: 0.5rem 0 0.4rem 0;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    overflow: visible;
+    text-align: center;
+}
+
+hr::after {
+    position: relative;
+    top: -1rem;
+    content: "🦛";
+}
