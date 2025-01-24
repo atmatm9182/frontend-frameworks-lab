@@ -47,6 +47,13 @@ body {
     margin: auto;
 }
 
+.add-lecture:hover {
+    background-image: url("/plus.svg");
+    background-size: convert;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 a {
     text-decoration: underline;
 }
@@ -57,10 +64,15 @@ input {
     margin: 2px;
 }
 
-input[type=submit] {
+button, input[type=submit] {
     border: 2px dashed crimson;
 }
 
-input[type=submit]:hover {
+button, input[type=submit]:hover {
     cursor: pointer;
+}
+
+table, td {
+    border: 2px solid black;
+    border-collapse: collapse;
 }
