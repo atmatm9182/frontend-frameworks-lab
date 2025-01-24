@@ -7,14 +7,14 @@ import { useAuth } from "@/lib/AuthContext";
 import { useRouter } from "next/navigation";
 
 export default function Register() {
-    const { user } = useAuth();
+    const { loading, user } = useAuth();
 
     const router = useRouter();
 
     const [error, setError] = useState(null);
 
-    if (user) {
-        return <>You are already logged in</>;
+    if (!loading && user) {
+        return <p>You are already logged in</p>;
     }
 
     async function onSubmit(e) {
@@ -37,6 +37,7 @@ export default function Register() {
     }
 
     return (
+        <>
         <form onSubmit={onSubmit}>
             <input name="email" type="email" />
             <label htmlFor="email">Email</label>
@@ -46,5 +47,12 @@ export default function Register() {
             <br />
             <input type="submit" value="Register" />
         </form>
+            { error
+                ?
+                <p>Error while trying to register: {error}</p>
+                :
+                <></>
+            }
+        </>
     );
 }

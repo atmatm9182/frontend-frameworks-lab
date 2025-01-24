@@ -34,6 +34,10 @@ export default function RootLayout({ children }) {
             href: "/user/signin",
             label: "Login",
         },
+        {
+            href: "/user/register",
+            label: "Register",
+        },
     ];
 
     return (
